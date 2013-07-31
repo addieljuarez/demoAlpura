@@ -6,6 +6,16 @@
 //  Copyright 2013 Addiel. All rights reserved.
 // 
 
+exports.General = {
+	win:{
+		backgroundColor:'#fff',
+	},
+	button:{
+		height:40,
+		width:150,
+	},
+}
+
 exports.Login = {
 	input:{
 		borderColor:'red',

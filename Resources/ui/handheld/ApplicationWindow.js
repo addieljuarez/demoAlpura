@@ -9,7 +9,7 @@
 function ApplicationWindow() {
 	
 	var self = Ti.UI.createWindow({
-		backgroundColor:'#000'
+		backgroundColor:'#000',
 	});
 	
 	

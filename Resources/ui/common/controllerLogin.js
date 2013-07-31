@@ -45,14 +45,52 @@ exports.cloudLogin = function(userCloud, passCloud){
 
 
 exports.cloudLogout = function(){
-	Cloud.Users.logout(function (e) {
-	    if (e.success) {
-	        alert('Success: Logged out');
-	        Titanium.App.Properties.setBool('autentificacion', false);
-			Ti.App.fireEvent('desautentificacion');
-	    } else {
-	        alert('Error:\n' +
-	            ((e.error && e.message) || JSON.stringify(e)));
-	    }
-	});	
+	if (Titanium.Network.online == true) {
+		Cloud.Users.logout(function (e) {
+		    if (e.success) {
+		        alert('Success: Logged out');
+		        Titanium.App.Properties.setBool('autentificacion', false);
+				Ti.App.fireEvent('desautentificacion');
+		    } else {
+		        alert('Error:\n' +
+		            ((e.error && e.message) || JSON.stringify(e)));
+		    }
+		});	
+	} else{
+		alert('sin coneccion');
+	};
+	
+}
+
+
+exports.cloudRegistro = function(cloudCorreo, cloudName, cloudSecondName, cloudPass, cloudConfirmarPass){
+	
+	var correoRegistro = cloudCorreo;
+	var nombreRegistro = cloudName;
+	var secondNameRegistro = cloudSecondName;
+	var passRegistro = cloudPass;
+	var confirmarPassRegistro = cloudConfirmarPass;
+	if (Titanium.Network.online ==true) {
+		Cloud.Users.create({
+		    email: correoRegistro,
+		    first_name: nombreRegistro,
+		    last_name: '',
+		    password: passRegistro,
+		    password_confirmation: confirmarPassRegistro
+		}, function (e) {
+		    if (e.success) {
+		        var user = e.users[0];
+		        alert('Success:\n' +
+		            'id: ' + user.id + '\n' +
+		            'sessionId: ' + Cloud.sessionId + '\n' +
+		            'first name: ' + user.first_name + '\n' +
+		            'last name: ' + user.last_name);
+		    } else {
+		        alert('Error:\n' +
+		            ((e.error && e.message) || JSON.stringify(e)));
+		    }
+		});
+	} else{
+		alert('sin coneccion');
+	};
 }

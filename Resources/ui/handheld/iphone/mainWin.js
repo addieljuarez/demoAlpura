@@ -7,10 +7,9 @@
 // 
 
 function MainWin(){
+	var style = require('ui/handheld/iphone/style');
 	var controllerLogin = require('ui/common/controllerLogin');
-	var self = Titanium.UI.createWindow({
-		backgroundColor:'red',
-	});
+	var self = Titanium.UI.createWindow(style.General.win);
 	
 	var logout = Titanium.UI.createButton({
 		title:'logout',

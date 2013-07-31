@@ -12,18 +12,20 @@ function Login(){
 	 */
 	var style = require('ui/handheld/iphone/style');
 	var controllerLogin = require('ui/common/controllerLogin');
+	var Registro = require('ui/handheld/iphone/registro');
 	
 	
 	
-	var self = Titanium.UI.createWindow({
-		backgroundColor:'blue',
-	});
+	var self = Titanium.UI.createWindow(style.General.win);
 	
 	var inputUser = Titanium.UI.createTextField(style.Login.input);
 	var inputPass = Titanium.UI.createTextField(style.Login.input);
 	inputUser.top = 100;
 	inputPass.top = 150;
 	inputPass.passwordMask = true;
+	inputUser.hintText = 'Usuario';
+	inputPass.hintText = 'Password';
+	
 	
 	var buttonLogin = Titanium.UI.createButton(style.Login.button);
 	var buttonRegistro = Titanium.UI.createButton(style.Login.button);
@@ -37,6 +39,9 @@ function Login(){
 	
 	
 	
+	/*
+	 *  eventListener
+	 */
 	
 	buttonLogin.addEventListener('click', function(e){
 		var userCloud = inputUser.value;
@@ -48,8 +53,14 @@ function Login(){
 		}
 	});
 	
+	buttonRegistro.addEventListener('click', function(e){
+		var registro = new Registro();
+		registro.open();
+	});
 	
-	
+	/*
+	 * Add to Win 
+	 */
 	self.add(inputUser);
 	self.add(inputPass);
 	self.add(buttonLogin);
