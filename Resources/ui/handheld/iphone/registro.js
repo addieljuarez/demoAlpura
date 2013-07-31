@@ -34,8 +34,11 @@ function RegistroWin(){
 	inputConfirmarPassword.passwordMask = true;
 	
 	var buttonRegistro = Titanium.UI.createButton(style.General.button);
+	var buttonCerrarRegistro = Titanium.UI.createButton(style.General.button);
 	buttonRegistro.title = 'registrate',
 	buttonRegistro.top = 300;
+	buttonCerrarRegistro.top = 350;
+	buttonCerrarRegistro.title = 'cerrar';
 	
 	
 	
@@ -62,6 +65,9 @@ function RegistroWin(){
 		}
 	});
 	
+	buttonCerrarRegistro.addEventListener('click', function(e){
+		self.close();
+	});
 	
 	
 	/*
@@ -69,9 +75,11 @@ function RegistroWin(){
 	 */
 	self.add(inputCorreo);
 	self.add(inputName);
+	self.add(inputSecondName);
 	self.add(inputPassword);
 	self.add(inputConfirmarPassword);
 	self.add(buttonRegistro);
+	self.add(buttonCerrarRegistro);
 	
 	
 	return self

@@ -14,6 +14,9 @@ exports.General = {
 		height:40,
 		width:150,
 	},
+	view:{
+		backgroudColor:'#fff',
+	}
 }
 
 exports.Login = {

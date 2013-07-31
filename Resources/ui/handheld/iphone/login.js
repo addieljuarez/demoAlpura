@@ -58,6 +58,10 @@ function Login(){
 		registro.open();
 	});
 	
+	buttonLoginFacebok.addEventListener('click', function(e){
+		controllerLogin.facebook();
+	});
+	
 	/*
 	 * Add to Win 
 	 */
