@@ -16,8 +16,10 @@ function Login(){
 	
 	
 	
+	/*
+	 * UI
+	 */
 	var self = Titanium.UI.createWindow(style.General.win);
-	
 	var inputUser = Titanium.UI.createTextField(style.Login.input);
 	var inputPass = Titanium.UI.createTextField(style.Login.input);
 	inputUser.top = 100;

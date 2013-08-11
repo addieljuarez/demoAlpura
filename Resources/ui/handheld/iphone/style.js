@@ -16,6 +16,18 @@ exports.General = {
 	},
 	view:{
 		backgroudColor:'#fff',
+	},
+	input:{
+		borderColor:'red',
+		height:30,
+		width:150,
+	},
+	button:{
+		height:40,
+		width:150,
+	},
+	test:{
+		backgroundColor:'red',
 	}
 }
 

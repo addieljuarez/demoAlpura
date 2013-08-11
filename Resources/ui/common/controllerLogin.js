@@ -185,14 +185,15 @@ exports.facebook = function(){
 				});
 		    	
 		    } else if (e.error) {
-		        errorMessage.message = 'Error de conección, intenta de nuevo';
-				errorMessage.show();
-				Titanium.Facebook.logout();
-				indicador.hide();
+		       alert( 'Error de conección, intenta de nuevo');				
+		       
+				// Titanium.Facebook.logout();
+				// indicador.hide();
 		    } else if (e.cancelled) {
+		    	alert( 'Error de conección, intenta de nuevo');	
 		        //alert("Canceled");
-		        indicador.hide();
-		        Titanium.Facebook.logout();
+		        // indicador.hide();
+		        // Titanium.Facebook.logout();
 		    }
 		});
 }
